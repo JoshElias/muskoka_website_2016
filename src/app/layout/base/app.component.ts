@@ -4,9 +4,9 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { RouteConfig, Router } from '@angular/router-deprecated';
 
-import { AppState } from './app.service';
-import { Home } from './home';
-import { RouterActive } from './router-active';
+import { AppState } from './app.service.ts';
+import { Home } from '../../pages/home';
+import { RouterActive } from '../../router-active';
 
 /*
  * App Component
@@ -49,7 +49,7 @@ import { RouterActive } from './router-active';
   { path: '/',      name: 'Index', component: Home, useAsDefault: true },
   { path: '/home',  name: 'Home',  component: Home },
   // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
-  { path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About') }
+  { path: '/about', name: 'About', loader: () => require('es6-promise!../../pages/about')('About') }
 ])
 export class App {
   angularclassLogo = 'assets/img/angularclass-avatar.png';

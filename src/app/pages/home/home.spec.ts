@@ -10,8 +10,8 @@ import { BaseRequestOptions, Http } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 
 // Load the implementations that should be tested
-import { AppState } from '../app.service';
-import { Home } from './home.component';
+import { AppState } from 'layout/base/app.service.ts';
+import { Home } from './pages/home/home.component.ts';
 import { Title } from './title';
 
 describe('Home', () => {

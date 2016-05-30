@@ -9,7 +9,7 @@ import {
 } from '@angular/core/testing';
 
 // Load the implementations that should be tested
-import { About } from './about.component';
+import { About } from './pages/about/about.component.ts';
 
 describe('About', () => {
   // provide our implementations or mocks to the dependency injector

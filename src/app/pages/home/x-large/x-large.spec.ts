@@ -11,7 +11,7 @@ import { BaseRequestOptions, Http } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 
 // Load the implementations that should be tested
-import { XLarge } from './x-large.directive';
+import { XLarge } from './pages/home/x-large/x-large.directive.ts';
 
 describe('x-large directive', () => {
   // Create a test component to test directives
