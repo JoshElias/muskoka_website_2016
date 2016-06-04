@@ -1,77 +1,37 @@
 /*
  * Angular 2 decorators and services
  */
-import { Component, ViewEncapsulation } from '@angular/core';
-import { RouteConfig, Router } from '@angular/router-deprecated';
+import { Component, ViewEncapsulation } from "@angular/core";
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from "@angular/router-deprecated";
 
-import { AppState } from './app.service.ts';
-import { Home } from '../../pages/home';
-import { RouterActive } from '../../router-active';
+
+import { HomeComponent } from "../../pages/home";
 
 /*
  * App Component
  * Top Level Component
  */
 @Component({
-  selector: 'app',
+  selector: "app",
   pipes: [ ],
-  providers: [ ],
-  directives: [ RouterActive ],
+  providers: [ ROUTER_PROVIDERS ],
+  directives: [ ROUTER_DIRECTIVES ],
   encapsulation: ViewEncapsulation.None,
-  styles: [
-    require('./app.css')
-  ],
+  styles: [ require("./app.component.css") ],
   template: `
-    <span router-active>
-      <button [routerLink]=" ['Index'] ">
-        Index
-      </button>
-    </span>
-    <span router-active>
-      <button [routerLink]=" ['Home'] ">
-        Home
-      </button>
-    </span>
-    <span router-active>
-      <button [routerLink]=" ['About'] ">
-        About
-      </button>
-    </span>
-
-    <main>
       <router-outlet></router-outlet>
-    </main>
-
-    <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
   `
 })
 @RouteConfig([
-  { path: '/',      name: 'Index', component: Home, useAsDefault: true },
-  { path: '/home',  name: 'Home',  component: Home },
+  {
+      path: "/",
+      name: "Home",
+      component: HomeComponent,
+      useAsDefault: true
+  }
   // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
-  { path: '/about', name: 'About', loader: () => require('es6-promise!../../pages/about')('About') }
+  //{ path: '/about', name: 'About', loader: () => require('es6-promise!../../pages/about')('About') }
 ])
-export class App {
-  angularclassLogo = 'assets/img/angularclass-avatar.png';
-  loading = false;
-  name = 'Angular 2 Webpack Starter';
-  url = 'https://twitter.com/AngularClass';
-
-  constructor(
-    public appState: AppState) {
-
-  }
-
-  ngOnInit() {
-    console.log('Initial App State', this.appState.state);
-  }
-
+export class AppComponent {
+  title = "Muskoka";
 }
-
-/*
- * Please review the https://github.com/AngularClass/angular2-examples/ repo for
- * more angular app examples that you may copy/paste
- * (The examples may not be updated as quickly. Please open an issue on github for us to update it)
- * For help or questions please contact us at @AngularClass on twitter
- * or our chat on Slack at https://AngularClass.com/slack-join
- */

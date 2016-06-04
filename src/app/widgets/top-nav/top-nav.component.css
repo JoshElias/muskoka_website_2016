@@ -1,0 +1,21 @@
+.navbar {
+    height: 53px;
+}
+
+.navbar-center {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    z-index: -1;
+}
+
+.muskoka-logo img {
+    display: inline-block;
+    height: auto;
+    width: 130px;
+}
+
+.navbar-brand {
+    float: none;
+}
+
